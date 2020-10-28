@@ -18,7 +18,7 @@ function onLoad() {
     for (let row=0; row <= yElements; row++) {
         let newRow = document.createElement('DIV');
 
-        for (let column=0; column <= xElements; column++) {
+        for (let column = 0; column <= xElements; column++) {
             let newDiv = document.createElement('DIV');
             newDiv.style.border = `${outline}px solid #9aa680`;
             newDiv.style.backgroundColor = '#879571';
@@ -41,6 +41,8 @@ function onLoad() {
 
         container.appendChild(newRow);
     }
+
+
 
     drawBrick();
     document.addEventListener('keydown', e => {
@@ -66,6 +68,29 @@ function onLoad() {
         // drawBrick(e.key);
 
     })
+
+    let scoreDiv = document.createElement('DIV');
+    let currentScore = 999
+    scoreDiv.innerHTML = `
+       <h1 id="score-title">SCORE</h1>
+       <h1 id="current-score">999</h1>
+       <h1 id="high-score-title">HI-SCORE</h1>
+       <h1 id="high-score">99999</h1>`;
+    let headings = scoreDiv.querySelectorAll('h1')
+    for (let i = 0; i < headings.length; i++    ) {
+        headings[i].style.position = 'relative';
+        headings[i].style.left = '10%';
+        headings[i].style.fontFamily = 'auto digital';
+    }
+    scoreDiv.style.border = `${outline}px solid #9aa680`;
+    scoreDiv.style.width = '20%';
+    scoreDiv.style.height = '69%';
+    scoreDiv.style.position = 'absolute';
+    scoreDiv.style.right = '48%';
+    scoreDiv.style.top = '1.3%';
+    scoreDiv.style.backgroundColor = '#879571';
+    container.appendChild(scoreDiv);
+
 }
 
 let bricks = [
@@ -318,3 +343,4 @@ function clear() {
 function loop() {
 
 }
+
