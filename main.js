@@ -69,7 +69,7 @@ function onLoad() {
 
     })
 
-    let scoreDiv = document.createElement('DIV');
+    let scoreDiv = document.getElementById('score-panel');
     let currentScore = 999
     scoreDiv.innerHTML = `
        <h1 id="score-title">SCORE</h1>
@@ -88,15 +88,13 @@ function onLoad() {
         headings[i].style.fontSize = '27px';
     }
     scoreDiv.style.textAlign = 'center'
-    scoreDiv.style.border = `${outline}px solid #9aa680`;
-    scoreDiv.style.width = '20%';
-    scoreDiv.style.height = '69.15%';
-    scoreDiv.style.position = 'absolute';
-    scoreDiv.style.right = '48%';
-    scoreDiv.style.top = '1.3%';
+    // scoreDiv.style.border = `${outline}px solid #9aa680`;
+    scoreDiv.style.border = `${outline}px solid red`;
+    // scoreDiv.style.width = '20%';
+    // scoreDiv.style.height = '69.15%';
+    // scoreDiv.style.right = '48%';
+    // scoreDiv.style.top = '1.3%';
     scoreDiv.style.backgroundColor = '#879571';
-    container.appendChild(scoreDiv);
-
 }
 
 let bricks = [
