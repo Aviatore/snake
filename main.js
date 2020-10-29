@@ -75,16 +75,22 @@ function onLoad() {
        <h1 id="score-title">SCORE</h1>
        <h1 id="current-score">999</h1>
        <h1 id="high-score-title">HI-SCORE</h1>
-       <h1 id="high-score">99999</h1>`;
+       <h1 id="high-score">99999</h1>
+       <h1 id="placeholder">PLACEHOLDER FOR BRICK PREVIEW</h1>
+       <h1 id="speed-title">SPEED</h1>
+       <h1 id="speed">0</h1>
+       <h1 id="level-title">LEVEL</h1>
+       <h1 id="level">0</h1>
+       <h1 id="speaker">&#128264;</h1>`;
     let headings = scoreDiv.querySelectorAll('h1')
     for (let i = 0; i < headings.length; i++    ) {
-        headings[i].style.position = 'relative';
-        headings[i].style.left = '10%';
         headings[i].style.fontFamily = 'auto digital';
+        headings[i].style.fontSize = '27px';
     }
+    scoreDiv.style.textAlign = 'center'
     scoreDiv.style.border = `${outline}px solid #9aa680`;
     scoreDiv.style.width = '20%';
-    scoreDiv.style.height = '69%';
+    scoreDiv.style.height = '69.15%';
     scoreDiv.style.position = 'absolute';
     scoreDiv.style.right = '48%';
     scoreDiv.style.top = '1.3%';
