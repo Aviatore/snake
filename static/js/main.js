@@ -363,6 +363,11 @@ function placeBrick() {
         drawBrick();
         clearScreenController();
         clearInterval(loop);
+
+        let score = document.getElementById("current-score");
+        score.innerText = '0';
+        get_highscore(Number(score.innerText));
+
     }
 
     // Update current brick
@@ -808,17 +813,24 @@ function loops(direction = null) {
     }
 }
 
-function get_highscore() {
+function get_highscore(score=null) {
     const xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", function(event) {
+    xhr.addEventListener("load", e => {
         if (xhr.status === 200) {
+
             let h1_highscore = document.getElementById("high-score");
             let highscore = JSON.parse(xhr.response);
-            highscore.innerText = highscore.highscore;
+            console.log(`highscore: ${highscore.highscore}`);
+            h1_highscore.innerText = highscore.highscore;
         }
     });
 
-    xhr.open("GET", "localhost:5000/highscore", true);
+    if (score === null) {
+        xhr.open("GET", "/highscore", true);
+    } else {
+        xhr.open("GET", `/highscore/${score}`, true);
+    }
+
     xhr.send();
 }
 

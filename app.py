@@ -1,9 +1,10 @@
-from flask import Flask, request, make_response, render_template, send_from_directory
+from flask import Flask, request, make_response, render_template, send_from_directory, jsonify
 from flask_cors import CORS
 from database import db, queries
 import json
 
 app = Flask(__name__)
+# CORS(app)
 
 
 @app.route('/')
@@ -32,10 +33,12 @@ def get_high_score():
     if len(highscore) > 0:
         print(f'highscore: {highscore[0]["score"]}')
 
-        output_json = json.dumps({'highscore': highscore[0]["score"]})
+        # output_json = json.dumps({'highscore': highscore[0]["score"]})
 
-        response = make_response(output_json)
-        return response
+
+        # response = make_response(output_json)
+        # return response
+        return jsonify({'highscore': highscore[0]["score"]});
 
 
 if __name__ == '__main__':
